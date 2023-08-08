@@ -10,23 +10,24 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам 
 
-sp1 = input("Введите вашу фразу ")
-def ryth(styh):
-    styh = styh.split()
-    res = []
-    for i in styh:
-        sum = 0
-        if i in 'ёуеыаоэяию':
-            sum += 1
-            print(sum)
-    res.append(sum)
-    print()
-    return len(res) == res.count(res[0])
+def task34():   
+    sp1 = input("Введите вашу фразу ")
+    def ryth(styh):
+        styh = styh.split()
+        res = []
+        for www in styh:
+            sum = 0
+            for i in www:
+                if i in 'ёуеыаоэяию':
+                    sum += 1
+            res.append(sum)
+        return len(res) == res.count(res[0])
 
-if ryth(sp1):
-    print("Парам пам-пам")
-else:
-    print('Пам парам')
+    if ryth(sp1):
+        print("Парам пам-пам")
+    else:
+        print('Пам парам')
+    return 
 
 
 
@@ -49,3 +50,21 @@ else:
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
+def task36():
+    def print_operation_table(operation, num_rows=6, num_columns=6):
+        for i in range(1, num_rows + 1):
+            ans = []
+            for j in range(1, num_columns + 1):
+                ans.append(str(operation(i, j)))
+            print(''.join(f'{e:<4}' for e in ans))
+
+    print_operation_table(lambda x, y: x * y)
+
+
+task = int(input("Введите номер задачи (34, 36) "))
+if task == 34:
+    task34()
+elif task == 36:
+    task36()
+else:
+    print("Такой задачи нет!")
